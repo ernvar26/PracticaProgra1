@@ -1,0 +1,42 @@
+// tutoria1.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
+//
+#include <iostream>
+#include <sstream>
+using namespace std;
+int logic(int);
+string piramide(int);
+int main()
+{
+    int cantidad = 0;
+    int numero = 0;
+    cout << "Digite numero de llantas que va a pagar\n";
+    cin >> cantidad;
+    cout << "Monto a pagar: " << logic(cantidad) << " colones.";
+    cout << "Digite numero base para la piramide\n";
+    cin >> numero;
+    cout << piramide(numero);
+};
+int logic(int cant) {
+    int precio;
+    if (cant >= 5)
+        precio = 41000;
+    else
+        precio = 50000;
+    precio *= cant;
+    return precio;
+}
+string piramide(int n) {
+    stringstream s;
+    int i = 1;
+    int j = 0;
+    while (!(i > n)) {
+        s << i;
+        i++;
+        if (i > n) {
+            s << endl;
+            j++;
+            i = 1 + j;
+        }
+    }
+    return s.str();
+}
